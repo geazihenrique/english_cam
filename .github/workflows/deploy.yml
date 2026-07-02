@@ -24,6 +24,7 @@ jobs:
         run: |
           mkdir -p restored
           cat source/source.part.* > /tmp/english_cam_source.tgz.b64
+          perl -0pi -e 's/p28lm1F/p28dm1F/' /tmp/english_cam_source.tgz.b64
           base64 -d /tmp/english_cam_source.tgz.b64 > /tmp/english_cam_source.tgz
           tar -xzf /tmp/english_cam_source.tgz -C restored
       - name: Setup Node
